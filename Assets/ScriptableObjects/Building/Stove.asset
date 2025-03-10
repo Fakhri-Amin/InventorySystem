@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Stove
   m_EditorClassIdentifier: 
   Name: Stove
+  Sprite: {fileID: 21300000, guid: e12d6e5ae3f834a4bbbe7674a0b41ed2, type: 3}
   Category: 5
   Description: 
   Size: 6

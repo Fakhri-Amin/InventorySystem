@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 660ed3ebd22e3c141ac24f7dc9b861ab, type: 3}
+  m_Name: CraftingItemDatabaseSO
+  m_EditorClassIdentifier: 
+  ItemSOList:
+  - {fileID: 11400000, guid: 52115622a92a2ce4b8e77cd93a1d02e7, type: 2}
+  - {fileID: 11400000, guid: a22fea4dcdb2bde46a735e9396f24573, type: 2}
+  - {fileID: 11400000, guid: 6f093d50e205a6040a7fd420f103275e, type: 2}
+  - {fileID: 11400000, guid: fe65666fa3431fb4f87ac12309a9fe44, type: 2}
+  - {fileID: 11400000, guid: ad6dabf9d587e2449a4769801b475ac5, type: 2}

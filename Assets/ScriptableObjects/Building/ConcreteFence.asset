@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: ConcreteFence
   m_EditorClassIdentifier: 
   Name: Concrete Fence
+  Sprite: {fileID: 21300000, guid: e83632a751f3f44539cbd3788947ccb4, type: 3}
   Category: 4
   Description: Create a concrete fence which is stronger.
   Size: 7

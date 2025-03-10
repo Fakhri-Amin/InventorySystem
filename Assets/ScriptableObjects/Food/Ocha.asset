@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Ocha
   m_EditorClassIdentifier: 
   Name: Ocha
+  Sprite: {fileID: 21300000, guid: c9e9017d870c14d64974dc3d6a9a7a45, type: 3}
   Category: 2
   Description: An item to consume
   Size: 0

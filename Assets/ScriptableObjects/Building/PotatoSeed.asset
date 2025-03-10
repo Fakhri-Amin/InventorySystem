@@ -10,12 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 048d6798e4d4d734daa257d495acfed0, type: 3}
-  m_Name: Meat
+  m_Name: PotatoSeed
   m_EditorClassIdentifier: 
-  Name: Meat
-  Sprite: {fileID: 21300000, guid: 0b20c082043af4ef3b25a10d21c7fa54, type: 3}
-  Category: 2
-  Description: An item to consume
-  Size: 0
-  RepairCost: 0
-  ResourceRequirementDatas: []
+  Name: Potato Seed
+  Sprite: {fileID: 21300000, guid: 33b3cd988ed2e41dea858c062488b88b, type: 3}
+  Category: 0
+  Description: 
+  Size: 1
+  RepairCost: 3
+  ResourceRequirementDatas:
+  - ResourceType: 0
+    Amount: 5

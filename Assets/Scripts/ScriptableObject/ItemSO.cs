@@ -6,6 +6,7 @@ using UnityEngine;
 public class ItemSO : ScriptableObject
 {
     public String Name;
+    public Sprite Sprite;
     public ItemCategory Category;
     public String Description;
     public int Size;

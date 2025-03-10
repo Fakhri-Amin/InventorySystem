@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 676867e7e9c2b8b46ad278567260561b, type: 3}
+  m_Name: BackpackItemDatabaseSO
+  m_EditorClassIdentifier: 
+  ItemSOList:
+  - {fileID: 11400000, guid: 32646c869f71e9c449f783ed97ec5077, type: 2}
+  - {fileID: 11400000, guid: e8ee5640472c7cc4a814d81a928ba85d, type: 2}
+  - {fileID: 11400000, guid: e5779c618986e67428a1463842f6a746, type: 2}
+  - {fileID: 11400000, guid: 08f42bbec70cc2d4c943f024f80ccc70, type: 2}
+  - {fileID: 11400000, guid: c2ff827963f598d41a2dea21a8ad516b, type: 2}

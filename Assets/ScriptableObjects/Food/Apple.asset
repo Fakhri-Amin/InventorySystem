@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Apple
   m_EditorClassIdentifier: 
   Name: Apple
+  Sprite: {fileID: 21300000, guid: 312b1cbd2b6004183bf118df5a83802f, type: 3}
   Category: 2
   Description: An item to consume
   Size: 0

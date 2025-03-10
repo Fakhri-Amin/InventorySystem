@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BrickFence
   m_EditorClassIdentifier: 
   Name: Brick Fence
+  Sprite: {fileID: 21300000, guid: 31b1537090fd949879d6b121311eea3c, type: 3}
   Category: 4
   Description: Create a brick fence which is hard.
   Size: 9
