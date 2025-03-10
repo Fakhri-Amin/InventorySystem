@@ -159,8 +159,8 @@ public class CraftingInventoryUI : MonoBehaviour
     private void CreateSlot(ItemSO itemData)
     {
         InventorySlotUI slot = Instantiate(inventorySlotPrefab, inventoryParent);
-        slot.GenerateSlot(itemData);
         createdInventorySlotUI.Add(slot);
+        slot.GenerateSlot(itemData);
     }
 
     /// <summary>

@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 public class CursorScript : MonoBehaviour
 {
     [SerializeField] private GameObject cursorGo;
+    [SerializeField] private float scaleSizeMultipler = 1.2f;
 
     void Update()
     {
@@ -21,6 +22,9 @@ public class CursorScript : MonoBehaviour
         {
             transform.position = new Vector3(EventSystem.current.currentSelectedGameObject.transform.position.x,
                 EventSystem.current.currentSelectedGameObject.transform.position.y, 0);
+
+            var rect = (RectTransform)transform;
+            rect.sizeDelta = EventSystem.current.currentSelectedGameObject.GetComponent<RectTransform>().sizeDelta * scaleSizeMultipler;
         }
     }
 
