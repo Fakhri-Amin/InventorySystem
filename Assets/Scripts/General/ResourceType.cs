@@ -5,9 +5,9 @@ public enum ResourceType
     Wood,
     Stone,
     Plastic,
-    RecyclePlastic,
+    Recycle_Plastic,
     Glass,
-    CopperBar,
+    Copper_Bar,
     Silver,
     Gold,
     Brick
