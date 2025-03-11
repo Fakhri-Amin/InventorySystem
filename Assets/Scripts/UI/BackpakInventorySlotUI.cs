@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using MoreMountains.Feedbacks;
 
-public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class BackpackInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Project Reference")]
     [SerializeField] private GameEventSO gameEventSO;
@@ -13,33 +13,26 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] private Button inventoryButton;
     [SerializeField] private Image itemImage;
     [SerializeField] private CanvasGroup hoveredOutline;
-    [SerializeField] private bool isHoverOverUI;
+    [SerializeField] private TMP_Text itemAmount;
 
     [Header("Hover Over UI")]
     [SerializeField] private CanvasGroup hoverOverUI;
     [SerializeField] private TMP_Text itemName;
-    [SerializeField] private TMP_Text itemSize;
-    [SerializeField] private TMP_Text itemRepairCost;
-
-    [Header("Animation")]
-    [SerializeField] private Color32 highlightedColor;
-    [SerializeField] private Color32 insufficientColor;
 
     [Header("Animation")]
     [SerializeField] private float fadeInDuration = 0.2f;
 
     [Header("Feedbacks")]
-    [SerializeField] private MMFeedbacks appearFeedbacks;
     [SerializeField] private MMFeedbacks clickFeedbacks;
 
     private ItemSO itemSO;
 
     public ItemSO ItemSO => itemSO;
 
-    public void GenerateSlot(ItemSO itemSO)
+    public void GenerateSlot(ItemSO itemSO, int currentAmount)
     {
         this.itemSO = itemSO;
-        gameObject.name = itemSO.Name;
+        // gameObject.name = itemSO.Name;
 
         inventoryButton.onClick.AddListener(() =>
         {
@@ -48,13 +41,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
         if (itemImage) itemImage.sprite = itemSO.Sprite;
 
-        if (isHoverOverUI)
-        {
-            itemName.text = itemSO.Name;
-            itemSize.text = itemSO.Size.ToString();
-            itemRepairCost.text = itemSO.RepairCost.ToString();
-            hoverOverUI.gameObject.SetActive(false);
-        }
+        itemName.text = itemSO.Name;
+        hoverOverUI.gameObject.SetActive(false);
+
+        itemAmount.text = currentAmount.ToString();
 
         hoveredOutline.DOFade(0, 0);
     }
@@ -65,7 +55,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         hoveredOutline.alpha = 1;
         hoveredOutline.DOFade(1, fadeInDuration);
         if (hoverOverUI) hoverOverUI.gameObject.SetActive(true);
-        if (appearFeedbacks) appearFeedbacks.PlayFeedbacks();
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(itemSO);
     }
 

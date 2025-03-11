@@ -6,10 +6,11 @@ using DG.Tweening;
 public class BackpackInventoryUI : MonoBehaviour
 {
     [Header("Project Reference")]
-    [SerializeField] private BackpackItemDatabaseSO itemDatabaseSO;
+    [SerializeField] private CraftingItemDatabaseSO itemDatabaseSO;
+    [SerializeField] private GameEventSO gameEventSO;
 
     [Header("Inventory UI")]
-    [SerializeField] private InventorySlotUI inventorySlotPrefab;
+    [SerializeField] private BackpackInventorySlotUI inventorySlotPrefab;
     [SerializeField] private Transform inventoryEmptySlotPrefab;
     [SerializeField] private Transform inventoryParent;
     [SerializeField] private int maxInventorySlotNumber = 40;
@@ -24,6 +25,16 @@ public class BackpackInventoryUI : MonoBehaviour
         GenerateAllInventorySlots();
     }
 
+    void OnEnable()
+    {
+        gameEventSO.OnBackpackInventoryItemChanged += GenerateAllInventorySlots;
+    }
+
+    void OnDisable()
+    {
+        gameEventSO.OnBackpackInventoryItemChanged -= GenerateAllInventorySlots;
+    }
+
     /// <summary>
     /// Generates all inventory slots, filling empty slots if necessary.
     /// </summary>
@@ -31,45 +42,27 @@ public class BackpackInventoryUI : MonoBehaviour
     {
         ClearAllSlots();
 
-        int itemCount = itemDatabaseSO.ItemSOList.Count;
-        foreach (var item in itemDatabaseSO.ItemSOList)
+        List<CurrentItemData> currentItemDatas = GameDataManager.Instance.CurrentItemDatas;
+        int itemCount = currentItemDatas.Count;
+
+        foreach (var item in currentItemDatas)
         {
-            CreateSlot(item);
+            ItemSO itemSO = itemDatabaseSO.ItemSOList.Find(i => i.Name == item.ID);
+            CreateSlot(itemSO, item.Amount);
         }
 
         CreateEmptySlots(maxInventorySlotNumber - itemCount);
 
-        inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
-    }
-
-    /// <summary>
-    /// Generates inventory slots based on selected category.
-    /// </summary>
-    private void GenerateInventorySlots(ItemCategory itemCategory)
-    {
-        ClearAllSlots();
-
-        int itemCount = 0;
-        foreach (var item in itemDatabaseSO.ItemSOList)
-        {
-            if (item.Category == itemCategory)
-            {
-                CreateSlot(item);
-                itemCount++;
-            }
-        }
-
-        CreateEmptySlots(maxInventorySlotNumber - itemCount);
-
-        inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
+        // inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
     }
 
     /// <summary>
     /// Creates an inventory slot and assigns item data.
     /// </summary>
-    private void CreateSlot(ItemSO itemData)
+    private void CreateSlot(ItemSO itemSO, int currentAmount)
     {
-        Instantiate(inventorySlotPrefab, inventoryParent).GenerateSlot(itemData);
+        BackpackInventorySlotUI backpackInventorySlot = Instantiate(inventorySlotPrefab, inventoryParent);
+        backpackInventorySlot.GenerateSlot(itemSO, currentAmount);
     }
 
     /// <summary>
@@ -88,7 +81,7 @@ public class BackpackInventoryUI : MonoBehaviour
     /// </summary>
     private void ClearAllSlots()
     {
-        inventoryParent.GetComponent<CanvasGroup>().DOFade(0, 0);
+        // inventoryParent.GetComponent<CanvasGroup>().DOFade(0, 0);
 
         foreach (Transform child in inventoryParent)
         {

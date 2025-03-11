@@ -6,4 +6,5 @@ public class GameEventSO : ScriptableObject
 {
     public Action<ItemSO> OnInventoryItemHoveredOver;
     public Action OnInventoryTabChanged;
+    public Action OnBackpackInventoryItemChanged;
 }

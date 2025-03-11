@@ -1584,6 +1584,12 @@ MonoBehaviour:
   itemName: {fileID: 6258726711309516909}
   itemSize: {fileID: 5387380962316182413}
   itemRepairCost: {fileID: 3599525811613149300}
+  highlightedColor:
+    serializedVersion: 2
+    rgba: 0
+  insufficientColor:
+    serializedVersion: 2
+    rgba: 0
   fadeInDuration: 0.2
   appearFeedbacks: {fileID: 2115923574803895365}
   clickFeedbacks: {fileID: 3293372085721546878}

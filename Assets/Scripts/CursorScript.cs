@@ -34,9 +34,9 @@ public class CursorScript : MonoBehaviour
 
     private void SetNewItemDetail()
     {
-        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<InventorySlotUI>())
+        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<CraftingInventorySlotUI>())
         {
-            gameEventSO.OnInventoryItemHoveredOver?.Invoke(EventSystem.current.currentSelectedGameObject.GetComponent<InventorySlotUI>().ItemSO);
+            gameEventSO.OnInventoryItemHoveredOver?.Invoke(EventSystem.current.currentSelectedGameObject.GetComponent<CraftingInventorySlotUI>().ItemSO);
         }
     }
 
@@ -45,7 +45,7 @@ public class CursorScript : MonoBehaviour
         //Matches the position of the cursor to the currently selected game object
         //Used in the radial, spiral, and grid demos
 
-        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<InventorySlotUI>())
+        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<CraftingInventorySlotUI>())
         {
             transform.position = new Vector3(EventSystem.current.currentSelectedGameObject.transform.position.x,
                 EventSystem.current.currentSelectedGameObject.transform.position.y, 0);

@@ -27,7 +27,7 @@ public class CraftingInventoryUI : MonoBehaviour
     [SerializeField] private List<TabReference> tabReferences = new List<TabReference>();
 
     [Header("Inventory UI")]
-    [SerializeField] private InventorySlotUI inventorySlotPrefab;
+    [SerializeField] private CraftingInventorySlotUI inventorySlotPrefab;
     [SerializeField] private Transform inventoryEmptySlotPrefab;
     [SerializeField] private Transform inventoryParent;
     [SerializeField] private int maxInventorySlotNumber = 48;
@@ -37,7 +37,7 @@ public class CraftingInventoryUI : MonoBehaviour
     [SerializeField] private float fadeOutDuration = 0.2f;
     [SerializeField] private float fadeInDuration = 0.2f;
 
-    private List<InventorySlotUI> createdInventorySlotUI = new();
+    private List<CraftingInventorySlotUI> createdInventorySlotUI = new();
 
     private void Start()
     {
@@ -161,7 +161,7 @@ public class CraftingInventoryUI : MonoBehaviour
     /// </summary>
     private void CreateSlot(ItemSO itemData)
     {
-        InventorySlotUI slot = Instantiate(inventorySlotPrefab, inventoryParent);
+        CraftingInventorySlotUI slot = Instantiate(inventorySlotPrefab, inventoryParent);
         createdInventorySlotUI.Add(slot);
         slot.GenerateSlot(itemData);
     }
