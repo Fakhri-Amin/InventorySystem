@@ -31,6 +31,11 @@ public class InventoryItemDetailUI : MonoBehaviour
         CacheResourceSprites();
     }
 
+    private void Start()
+    {
+        panel.gameObject.SetActive(false);
+    }
+
     private void OnEnable()
     {
         gameEventSO.OnInventoryItemHoveredOver += RefreshUI;
