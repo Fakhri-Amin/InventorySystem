@@ -58,8 +58,6 @@ public class BackpackInventoryUI : MonoBehaviour
         }
 
         CreateEmptySlots(maxInventorySlotNumber - itemCount);
-
-        // inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
     }
 
     /// <summary>

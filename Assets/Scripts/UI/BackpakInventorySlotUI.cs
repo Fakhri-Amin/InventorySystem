@@ -56,6 +56,8 @@ public class BackpackInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
         hoveredOutline.DOFade(1, fadeInDuration);
         if (hoverOverUI) hoverOverUI.gameObject.SetActive(true);
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(itemSO);
+
+        AudioManager.Instance.PlayHoverSound();
     }
 
     public void OnPointerExit(PointerEventData eventData)

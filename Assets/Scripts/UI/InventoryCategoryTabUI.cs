@@ -38,6 +38,8 @@ public class InventoryCategoryTabUI : MonoBehaviour, IPointerEnterHandler, IPoin
         nameText.gameObject.SetActive(true);
         outlineImage.DOFade(hoveredAlphaValue, fadeInDuration);
 
+        AudioManager.Instance.PlayClickSound();
+
         OnTabSelected?.Invoke(this, duration);
     }
 
@@ -70,6 +72,7 @@ public class InventoryCategoryTabUI : MonoBehaviour, IPointerEnterHandler, IPoin
     public void OnPointerEnter(PointerEventData eventData)
     {
         outlineImage.DOFade(hoveredAlphaValue, fadeInDuration);
+        AudioManager.Instance.PlayHoverSound();
     }
 
     public void OnPointerExit(PointerEventData eventData)

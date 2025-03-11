@@ -43,7 +43,6 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
 
         inventoryButton.onClick.AddListener(() =>
         {
-            clickFeedbacks.PlayFeedbacks();
             CraftItem();
         });
 
@@ -65,6 +64,8 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
     public void CraftItem()
     {
         GameDataManager.Instance.AddItemData(itemSO, 1);
+        clickFeedbacks.PlayFeedbacks();
+        AudioManager.Instance.PlayClickSound();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -76,6 +77,8 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
         if (appearFeedbacks) appearFeedbacks.PlayFeedbacks();
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(itemSO);
         CraftingInputManager.Instance.SetCurrentSlot(this);
+
+        AudioManager.Instance.PlayHoverSound();
     }
 
     public void OnPointerExit(PointerEventData eventData)
