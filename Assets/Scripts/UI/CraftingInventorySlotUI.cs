@@ -57,6 +57,8 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
             hoverOverUI.gameObject.SetActive(false);
         }
 
+        clickFeedbacks.PlayFeedbacks();
+
         hoveredOutline.DOFade(0, 0);
     }
 

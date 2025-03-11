@@ -119,7 +119,7 @@ public class CraftingInventoryUI : MonoBehaviour
 
         CreateEmptySlots(maxInventorySlotNumber - itemCount);
 
-        inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
+        // inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
 
         if (EventSystem.current.currentSelectedGameObject == null)
         {
@@ -147,7 +147,7 @@ public class CraftingInventoryUI : MonoBehaviour
 
         CreateEmptySlots(maxInventorySlotNumber - itemCount);
 
-        inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
+        // inventoryParent.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
 
         if (EventSystem.current.currentSelectedGameObject == null)
         {
@@ -182,7 +182,7 @@ public class CraftingInventoryUI : MonoBehaviour
     /// </summary>
     private void ClearAllSlots()
     {
-        inventoryParent.GetComponent<CanvasGroup>().DOFade(0, 0);
+        // inventoryParent.GetComponent<CanvasGroup>().DOFade(0, 0);
         createdInventorySlotUI.Clear();
         EventSystem.current.SetSelectedGameObject(null);
 

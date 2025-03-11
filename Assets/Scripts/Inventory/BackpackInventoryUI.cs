@@ -2,6 +2,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using DG.Tweening;
+using MoreMountains.Feedbacks;
 
 public class BackpackInventoryUI : MonoBehaviour
 {
@@ -19,6 +20,9 @@ public class BackpackInventoryUI : MonoBehaviour
     [SerializeField] private float shiftAmount = 20f;
     [SerializeField] private float fadeOutDuration = 0.2f;
     [SerializeField] private float fadeInDuration = 0.2f;
+
+    [Header("Feedbacks")]
+    [SerializeField] private MMFeedbacks appearFeedbacks;
 
     private void Start()
     {
@@ -41,6 +45,8 @@ public class BackpackInventoryUI : MonoBehaviour
     private void GenerateAllInventorySlots()
     {
         ClearAllSlots();
+
+        appearFeedbacks.PlayFeedbacks();
 
         List<CurrentItemData> currentItemDatas = GameDataManager.Instance.CurrentItemDatas;
         int itemCount = currentItemDatas.Count;
