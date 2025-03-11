@@ -57,12 +57,10 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         }
 
         hoveredOutline.DOFade(0, 0);
-        // hoverOverUI.DOFade(0, 0);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // hoverOverUI.DOFade(1, fadeInDuration);
         hoveredOutline.gameObject.SetActive(true);
         hoveredOutline.alpha = 1;
         hoveredOutline.DOFade(1, fadeInDuration);
@@ -73,8 +71,6 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        // hoverOverUI.DOFade(0, fadeInDuration);
-        // hoveredOutline.alpha = 0;
         hoveredOutline.gameObject.SetActive(false);
         if (hoverOverUI) hoverOverUI.gameObject.SetActive(false);
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(null);

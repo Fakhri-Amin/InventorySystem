@@ -10,16 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 048d6798e4d4d734daa257d495acfed0, type: 3}
-  m_Name: ConcreteFence
+  m_Name: Iron
   m_EditorClassIdentifier: 
-  Name: Concrete Fence
-  Sprite: {fileID: 21300000, guid: e83632a751f3f44539cbd3788947ccb4, type: 3}
-  Category: 4
-  Description: Create a concrete fence which is stronger.
-  Size: 7
-  RepairCost: 20
-  ResourceRequirementDatas:
-  - ResourceType: 0
-    Amount: 50
-  - ResourceType: 3
-    Amount: 20
+  Name: Silver
+  Sprite: {fileID: 21300000, guid: dcf0ec92164b14b8f94ab038939db29d, type: 3}
+  Category: 6
+  Description: A bar of iron
+  Size: 0
+  RepairCost: 0
+  ResourceRequirementDatas: []

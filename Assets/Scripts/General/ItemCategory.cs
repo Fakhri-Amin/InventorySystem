@@ -8,5 +8,6 @@ public enum ItemCategory
     Potion,
     Decor,
     ResourceEquipment,
+    Resource,
     Misc
 }

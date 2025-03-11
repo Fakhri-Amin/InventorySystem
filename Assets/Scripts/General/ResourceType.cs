@@ -8,7 +8,7 @@ public enum ResourceType
     Recycle_Plastic,
     Glass,
     Copper_Bar,
-    Silver,
+    Iron,
     Gold,
     Brick
 }

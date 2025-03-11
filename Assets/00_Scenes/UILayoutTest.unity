@@ -181,6 +181,7 @@ GameObject:
   - component: {fileID: 53534575}
   - component: {fileID: 53534574}
   - component: {fileID: 53534573}
+  - component: {fileID: 53534576}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -240,7 +241,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -261,6 +262,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 53534571}
   m_CullTransparentMesh: 1
+--- !u!225 &53534576
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 53534571}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &63831981
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +838,10 @@ MonoBehaviour:
   buttonImage: {fileID: 156684411}
   iconImage: {fileID: 790484037}
   nameText: {fileID: 1960802475}
+  outlineImage: {fileID: 1391548499}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &171156997
 GameObject:
   m_ObjectHideFlags: 0
@@ -2913,6 +2930,7 @@ GameObject:
   - component: {fileID: 343485064}
   - component: {fileID: 343485063}
   - component: {fileID: 343485062}
+  - component: {fileID: 343485065}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -2972,7 +2990,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -2993,6 +3011,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 343485060}
   m_CullTransparentMesh: 1
+--- !u!225 &343485065
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 343485060}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &348770590
 GameObject:
   m_ObjectHideFlags: 0
@@ -3361,6 +3391,7 @@ GameObject:
   - component: {fileID: 400180220}
   - component: {fileID: 400180219}
   - component: {fileID: 400180218}
+  - component: {fileID: 400180221}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -3420,7 +3451,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -3441,6 +3472,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 400180216}
   m_CullTransparentMesh: 1
+--- !u!225 &400180221
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 400180216}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &411182711
 GameObject:
   m_ObjectHideFlags: 0
@@ -3848,6 +3891,10 @@ MonoBehaviour:
   buttonImage: {fileID: 506747801}
   iconImage: {fileID: 1915396651}
   nameText: {fileID: 220568122}
+  outlineImage: {fileID: 343485065}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &535639230
 GameObject:
   m_ObjectHideFlags: 0
@@ -4441,6 +4488,10 @@ MonoBehaviour:
   buttonImage: {fileID: 561127810}
   iconImage: {fileID: 647138262}
   nameText: {fileID: 1106853459}
+  outlineImage: {fileID: 53534576}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!224 &567246007 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 7554791815669421696, guid: c20114bc64150634ca6f099de413600a, type: 3}
@@ -4687,6 +4738,10 @@ MonoBehaviour:
   buttonImage: {fileID: 587756332}
   iconImage: {fileID: 323888714}
   nameText: {fileID: 1408124835}
+  outlineImage: {fileID: 1091745116}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &610906606
 GameObject:
   m_ObjectHideFlags: 0
@@ -5951,6 +6006,10 @@ MonoBehaviour:
   buttonImage: {fileID: 766858224}
   iconImage: {fileID: 306535086}
   nameText: {fileID: 1411362255}
+  outlineImage: {fileID: 2114162834}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &775400476
 GameObject:
   m_ObjectHideFlags: 0
@@ -7784,9 +7843,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 574529342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 35, y: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 129.5452, y: 41.765015}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1049293619
@@ -8292,6 +8351,7 @@ GameObject:
   - component: {fileID: 1091745115}
   - component: {fileID: 1091745114}
   - component: {fileID: 1091745113}
+  - component: {fileID: 1091745116}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -8351,7 +8411,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -8372,6 +8432,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1091745111}
   m_CullTransparentMesh: 1
+--- !u!225 &1091745116
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1091745111}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1106853457
 GameObject:
   m_ObjectHideFlags: 0
@@ -9687,9 +9759,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 574529342}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 17.5, y: -20.882507}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 35, y: 35}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1267521572
@@ -9995,6 +10067,7 @@ GameObject:
   - component: {fileID: 1330653491}
   - component: {fileID: 1330653490}
   - component: {fileID: 1330653489}
+  - component: {fileID: 1330653492}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -10054,7 +10127,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10075,6 +10148,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330653487}
   m_CullTransparentMesh: 1
+--- !u!225 &1330653492
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1330653487}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1336344085
 GameObject:
   m_ObjectHideFlags: 0
@@ -10121,15 +10206,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentResourceDatas:
   - ResourceType: 0
-    Amount: 2
+    Amount: 5
   - ResourceType: 1
     Amount: 99
   - ResourceType: 6
-    Amount: 4
+    Amount: 15
   - ResourceType: 7
     Amount: 99
   - ResourceType: 8
-    Amount: 6
+    Amount: 25
+  CurrentItemDatas: []
 --- !u!1 &1338476168
 GameObject:
   m_ObjectHideFlags: 0
@@ -10281,6 +10367,7 @@ GameObject:
   - component: {fileID: 1391548498}
   - component: {fileID: 1391548497}
   - component: {fileID: 1391548496}
+  - component: {fileID: 1391548499}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -10340,7 +10427,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -10361,6 +10448,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1391548494}
   m_CullTransparentMesh: 1
+--- !u!225 &1391548499
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1391548494}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &1404801224
 GameObject:
   m_ObjectHideFlags: 0
@@ -11421,6 +11520,10 @@ MonoBehaviour:
   buttonImage: {fileID: 1494028459}
   iconImage: {fileID: 1587544752}
   nameText: {fileID: 1711838415}
+  outlineImage: {fileID: 1330653492}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &1497468446
 GameObject:
   m_ObjectHideFlags: 0
@@ -11662,6 +11765,10 @@ MonoBehaviour:
   buttonImage: {fileID: 1518628786}
   iconImage: {fileID: 1807598170}
   nameText: {fileID: 894833460}
+  outlineImage: {fileID: 400180221}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &1573768639
 GameObject:
   m_ObjectHideFlags: 0
@@ -12770,6 +12877,10 @@ MonoBehaviour:
   buttonImage: {fileID: 1724755504}
   iconImage: {fileID: 1404801228}
   nameText: {fileID: 251914244}
+  outlineImage: {fileID: 2109373775}
+  fadeInDuration: 0.2
+  hoveredAlphaValue: 0.5
+  disableAlphaValue: 0.1
 --- !u!1 &1737752988
 GameObject:
   m_ObjectHideFlags: 0
@@ -13263,15 +13374,15 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 413060218089737702, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 413060218089737702, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 413060218089737702, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 179.41
       objectReference: {fileID: 0}
     - target: {fileID: 413060218089737702, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13279,11 +13390,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 413060218089737702, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 99.705
       objectReference: {fileID: 0}
     - target: {fileID: 413060218089737702, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -57.717552
       objectReference: {fileID: 0}
     - target: {fileID: 1411980903943561565, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_SizeDelta.x
@@ -13295,11 +13406,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1622634876669664846, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1622634876669664846, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 1622634876669664846, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13307,19 +13418,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1622634876669664846, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 1622634876669664846, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13.14725
       objectReference: {fileID: 0}
     - target: {fileID: 2311858892623804299, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2311858892623804299, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2311858892623804299, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13327,23 +13438,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2311858892623804299, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 37.5
       objectReference: {fileID: 0}
     - target: {fileID: 2311858892623804299, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13.14725
       objectReference: {fileID: 0}
     - target: {fileID: 2450606109372141232, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2450606109372141232, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2450606109372141232, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 0
+      value: 179.41
       objectReference: {fileID: 0}
     - target: {fileID: 2450606109372141232, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_LocalPosition.y
@@ -13351,11 +13462,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2450606109372141232, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 99.705
       objectReference: {fileID: 0}
     - target: {fileID: 2450606109372141232, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -18.38815
       objectReference: {fileID: 0}
     - target: {fileID: 2508752153940979094, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
@@ -13387,11 +13498,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091923882771548703, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4091923882771548703, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4091923882771548703, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13399,11 +13510,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4091923882771548703, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 40.78265
       objectReference: {fileID: 0}
     - target: {fileID: 4091923882771548703, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13.14725
       objectReference: {fileID: 0}
     - target: {fileID: 6560549360821553149, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_Color.a
@@ -13527,11 +13638,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7957489435021349298, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7957489435021349298, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchorMin.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7957489435021349298, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_LocalPosition.x
@@ -13539,11 +13650,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7957489435021349298, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 0
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 7957489435021349298, guid: 79bf17e0ef2e0ea4284bd9b87ac11553, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 0
+      value: -13.14725
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -15106,6 +15217,7 @@ GameObject:
   - component: {fileID: 2109373774}
   - component: {fileID: 2109373773}
   - component: {fileID: 2109373772}
+  - component: {fileID: 2109373775}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -15165,7 +15277,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15186,6 +15298,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109373770}
   m_CullTransparentMesh: 1
+--- !u!225 &2109373775
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109373770}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2114162829
 GameObject:
   m_ObjectHideFlags: 0
@@ -15198,6 +15322,7 @@ GameObject:
   - component: {fileID: 2114162833}
   - component: {fileID: 2114162832}
   - component: {fileID: 2114162831}
+  - component: {fileID: 2114162834}
   m_Layer: 5
   m_Name: Outline
   m_TagString: Untagged
@@ -15257,7 +15382,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.078431375}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -15278,6 +15403,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2114162829}
   m_CullTransparentMesh: 1
+--- !u!225 &2114162834
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2114162829}
+  m_Enabled: 1
+  m_Alpha: 0.1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2118890078
 GameObject:
   m_ObjectHideFlags: 0
