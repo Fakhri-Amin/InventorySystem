@@ -209,4 +209,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d83184a88dfc384e8cd2f8752f93304, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameEventSO: {fileID: 11400000, guid: dac4257834df3db4e8346a926013b026, type: 2}
   itemImage: {fileID: 390726098328517834}
+  isHoverOverUI: 0
+  hoverOverUI: {fileID: 0}
+  itemName: {fileID: 0}
+  itemSize: {fileID: 0}
+  itemRepairCost: {fileID: 0}
+  fadeInDuration: 0.2

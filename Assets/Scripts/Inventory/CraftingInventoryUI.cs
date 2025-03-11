@@ -20,6 +20,7 @@ public class CraftingInventoryUI : MonoBehaviour
 
     [Header("Project Reference")]
     [SerializeField] private CraftingItemDatabaseSO itemDatabaseSO;
+    [SerializeField] private GameEventSO gameEventSO;
 
     [Header("Tab Management")]
     [SerializeField] private Button tabAllCategoryButton;
@@ -86,8 +87,10 @@ public class CraftingInventoryUI : MonoBehaviour
 
             tab.Button.onClick.AddListener(() =>
             {
+                gameEventSO.OnInventoryItemHoveredOver?.Invoke(null);
                 SelectTab(tabUI);
                 GenerateInventorySlots(tab.TabCategory);
+                gameEventSO.OnInventoryTabChanged?.Invoke();
             });
         }
     }

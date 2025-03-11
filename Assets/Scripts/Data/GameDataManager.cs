@@ -16,6 +16,7 @@ public class GameDataManager : MonoBehaviour
 
 }
 
+[System.Serializable]
 public class CurrentResourceData
 {
     public ResourceType ResourceType;

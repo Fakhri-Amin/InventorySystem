@@ -6,6 +6,9 @@ using DG.Tweening;
 
 public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
+    [Header("Project Reference")]
+    [SerializeField] private GameEventSO gameEventSO;
+
     [SerializeField] private Image itemImage;
     [SerializeField] private bool isHoverOverUI;
 
@@ -42,10 +45,12 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     public void OnPointerEnter(PointerEventData eventData)
     {
         hoverOverUI.DOFade(1, fadeInDuration);
+        if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(itemSO);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         hoverOverUI.DOFade(0, fadeInDuration);
+        if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(null);
     }
 }

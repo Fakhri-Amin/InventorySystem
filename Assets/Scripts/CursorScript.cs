@@ -5,12 +5,39 @@ using UnityEngine.EventSystems;
 
 public class CursorScript : MonoBehaviour
 {
+    [Header("Project Reference")]
+    [SerializeField] private GameAssetSO gameAssetSO;
+    [SerializeField] private GameEventSO gameEventSO;
+
     [SerializeField] private GameObject cursorGo;
     [SerializeField] private float scaleSizeMultipler = 1.2f;
+
+    private void Start()
+    {
+        SetNewItemDetail();
+    }
+
+    void OnEnable()
+    {
+        gameEventSO.OnInventoryTabChanged += SetNewItemDetail;
+    }
+
+    void OnDisable()
+    {
+        gameEventSO.OnInventoryTabChanged -= SetNewItemDetail;
+    }
 
     void Update()
     {
         FollowCurrentSelected();
+    }
+
+    private void SetNewItemDetail()
+    {
+        if (EventSystem.current.currentSelectedGameObject != null && EventSystem.current.currentSelectedGameObject.GetComponent<InventorySlotUI>())
+        {
+            gameEventSO.OnInventoryItemHoveredOver?.Invoke(EventSystem.current.currentSelectedGameObject.GetComponent<InventorySlotUI>().ItemSO);
+        }
     }
 
     public void FollowCurrentSelected()
