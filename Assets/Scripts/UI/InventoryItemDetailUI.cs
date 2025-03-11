@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using System.Collections.Generic;
 using UnityEngine.EventSystems;
+using MoreMountains.Feedbacks;
 
 public class InventoryItemDetailUI : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class InventoryItemDetailUI : MonoBehaviour
     [SerializeField] private GameAssetSO gameAssetSO;
     [SerializeField] private GameEventSO gameEventSO;
 
+    [Header("UI Reference")]
     [SerializeField] private Transform panel;
     [SerializeField] private Image itemImage;
     [SerializeField] private TMP_Text itemName;
@@ -19,6 +21,9 @@ public class InventoryItemDetailUI : MonoBehaviour
     [SerializeField] private TMP_Text itemDesc;
     [SerializeField] private TMP_Text itemSize;
     [SerializeField] private TMP_Text itemRepairCost;
+
+    [Header("Feedbacks")]
+    [SerializeField] private MMFeedbacks appearFeedbacks;
 
     [Header("Resource Requirement")]
     [SerializeField] private List<InventoryItemResourceRequirementUI> inventoryItemResources = new();
@@ -72,6 +77,7 @@ public class InventoryItemDetailUI : MonoBehaviour
         }
 
         panel.gameObject.SetActive(true);
+        appearFeedbacks.PlayFeedbacks();
 
         ClearResourceRequirements();
 
@@ -96,10 +102,10 @@ public class InventoryItemDetailUI : MonoBehaviour
             if (!resourceSpriteDict.TryGetValue(itemSO.ResourceRequirementDatas[i].ResourceType, out Sprite resourceSprite)) continue;
 
             var currentResource = GameDataManager.Instance.CurrentResourceDatas.Find(x => x.ResourceType == itemSO.ResourceRequirementDatas[i].ResourceType);
-            string currentAmount = currentResource != null ? currentResource.Amount.ToString() : "0";
+            int currentAmount = currentResource != null ? currentResource.Amount : 0;
 
             inventoryItemResources[i].gameObject.SetActive(true);
-            inventoryItemResources[i].RefreshUI(resourceSprite, itemSO.Name, currentAmount, itemSO.ResourceRequirementDatas[i].Amount.ToString());
+            inventoryItemResources[i].RefreshUI(resourceSprite, itemSO.ResourceRequirementDatas[i].ResourceType.ToString().Replace('_', ' '), currentAmount, itemSO.ResourceRequirementDatas[i].Amount);
         }
 
 

@@ -3,13 +3,16 @@ using UnityEngine.UI;
 using TMPro;
 using UnityEngine.EventSystems;
 using DG.Tweening;
+using MoreMountains.Feedbacks;
 
 public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
     [Header("Project Reference")]
     [SerializeField] private GameEventSO gameEventSO;
 
+    [SerializeField] private Button inventoryButton;
     [SerializeField] private Image itemImage;
+    [SerializeField] private CanvasGroup hoveredOutline;
     [SerializeField] private bool isHoverOverUI;
 
     [Header("Hover Over UI")]
@@ -19,7 +22,15 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
     [SerializeField] private TMP_Text itemRepairCost;
 
     [Header("Animation")]
+    [SerializeField] private Color32 highlightedColor;
+    [SerializeField] private Color32 insufficientColor;
+
+    [Header("Animation")]
     [SerializeField] private float fadeInDuration = 0.2f;
+
+    [Header("Feedbacks")]
+    [SerializeField] private MMFeedbacks appearFeedbacks;
+    [SerializeField] private MMFeedbacks clickFeedbacks;
 
     private ItemSO itemSO;
 
@@ -30,6 +41,11 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
         this.itemSO = itemSO;
         gameObject.name = itemSO.Name;
 
+        inventoryButton.onClick.AddListener(() =>
+        {
+            clickFeedbacks.PlayFeedbacks();
+        });
+
         if (itemImage) itemImage.sprite = itemSO.Sprite;
 
         if (isHoverOverUI)
@@ -37,20 +53,30 @@ public class InventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExit
             itemName.text = itemSO.Name;
             itemSize.text = itemSO.Size.ToString();
             itemRepairCost.text = itemSO.RepairCost.ToString();
+            hoverOverUI.gameObject.SetActive(false);
         }
 
-        hoverOverUI.DOFade(0, 0);
+        hoveredOutline.DOFade(0, 0);
+        // hoverOverUI.DOFade(0, 0);
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        hoverOverUI.DOFade(1, fadeInDuration);
+        // hoverOverUI.DOFade(1, fadeInDuration);
+        hoveredOutline.gameObject.SetActive(true);
+        hoveredOutline.alpha = 1;
+        hoveredOutline.DOFade(1, fadeInDuration);
+        if (hoverOverUI) hoverOverUI.gameObject.SetActive(true);
+        if (appearFeedbacks) appearFeedbacks.PlayFeedbacks();
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(itemSO);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        hoverOverUI.DOFade(0, fadeInDuration);
+        // hoverOverUI.DOFade(0, fadeInDuration);
+        // hoveredOutline.alpha = 0;
+        hoveredOutline.gameObject.SetActive(false);
+        if (hoverOverUI) hoverOverUI.gameObject.SetActive(false);
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(null);
     }
 }

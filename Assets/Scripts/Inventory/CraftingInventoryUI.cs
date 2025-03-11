@@ -28,7 +28,7 @@ public class CraftingInventoryUI : MonoBehaviour
 
     [Header("Inventory UI")]
     [SerializeField] private InventorySlotUI inventorySlotPrefab;
-    [SerializeField] private InventorySlotUI inventoryEmptySlotPrefab;
+    [SerializeField] private Transform inventoryEmptySlotPrefab;
     [SerializeField] private Transform inventoryParent;
     [SerializeField] private int maxInventorySlotNumber = 48;
 
