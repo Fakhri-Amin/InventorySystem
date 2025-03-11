@@ -5,7 +5,7 @@ using UnityEngine.EventSystems;
 using DG.Tweening;
 using MoreMountains.Feedbacks;
 
-public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
+public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IPointerDownHandler
 {
     [Header("Project Reference")]
     [SerializeField] private GameEventSO gameEventSO;
@@ -44,7 +44,7 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
         inventoryButton.onClick.AddListener(() =>
         {
             clickFeedbacks.PlayFeedbacks();
-            GameDataManager.Instance.AddItemData(itemSO, 1);
+            CraftItem();
         });
 
         if (itemImage) itemImage.sprite = itemSO.Sprite;
@@ -62,6 +62,11 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
         hoveredOutline.DOFade(0, 0);
     }
 
+    public void CraftItem()
+    {
+        GameDataManager.Instance.AddItemData(itemSO, 1);
+    }
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         hoveredOutline.gameObject.SetActive(true);
@@ -70,6 +75,7 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
         if (hoverOverUI) hoverOverUI.gameObject.SetActive(true);
         if (appearFeedbacks) appearFeedbacks.PlayFeedbacks();
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(itemSO);
+        CraftingInputManager.Instance.SetCurrentSlot(this);
     }
 
     public void OnPointerExit(PointerEventData eventData)
@@ -77,5 +83,11 @@ public class CraftingInventorySlotUI : MonoBehaviour, IPointerEnterHandler, IPoi
         hoveredOutline.gameObject.SetActive(false);
         if (hoverOverUI) hoverOverUI.gameObject.SetActive(false);
         if (itemSO) gameEventSO.OnInventoryItemHoveredOver?.Invoke(null);
+        CraftingInputManager.Instance.SetCurrentSlot(null);
+    }
+
+    public void OnPointerDown(PointerEventData eventData)
+    {
+        CraftingInputManager.Instance.SetCurrentSlot(this);
     }
 }
