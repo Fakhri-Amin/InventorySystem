@@ -30,12 +30,14 @@ public class MenuUI : MonoBehaviour
     {
         menuInputManager.OnNextMenuButtonPressed += MoveToNextMenu;
         menuInputManager.OnPreviousMenuButtonPressed += MoveToPreviousMenu;
+        menuInputManager.OnCloseMenuButtonPressed += CloseMenu;
     }
 
     void OnDisable()
     {
         menuInputManager.OnNextMenuButtonPressed -= MoveToNextMenu;
         menuInputManager.OnPreviousMenuButtonPressed -= MoveToPreviousMenu;
+        menuInputManager.OnCloseMenuButtonPressed -= CloseMenu;
     }
 
     private void InitializeMenu()
@@ -106,5 +108,26 @@ public class MenuUI : MonoBehaviour
     {
         int prevIndex = (currentIndex - 1 + menuReferences.Count) % menuReferences.Count;
         OpenMenu(prevIndex);
+    }
+
+    private void CloseMenu()
+    {
+        Hide();
+    }
+
+    public void Show()
+    {
+        AudioManager.Instance.PlayClickSound();
+        gameObject.SetActive(true);
+        GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
+    }
+
+    public void Hide()
+    {
+        AudioManager.Instance.PlayClickSound();
+        GetComponent<CanvasGroup>().DOFade(0, fadeInDuration).OnComplete(() =>
+        {
+            gameObject.SetActive(false);
+        });
     }
 }
