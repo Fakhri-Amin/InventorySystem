@@ -21,9 +21,15 @@ public class InventoryCategoryTabUI : MonoBehaviour, IPointerEnterHandler, IPoin
     [SerializeField] private float hoveredAlphaValue;
     [SerializeField] private float disableAlphaValue;
 
+    private void Start()
+    {
+    }
+
     void OnEnable()
     {
         OnTabSelected += DeselectTab;
+        buttonImage.GetComponent<CanvasGroup>().alpha = 0;
+        buttonImage.GetComponent<CanvasGroup>().DOFade(1, fadeInDuration);
     }
 
     void OnDisable()
