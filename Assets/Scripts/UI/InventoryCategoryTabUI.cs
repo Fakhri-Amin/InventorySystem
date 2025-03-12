@@ -77,12 +77,13 @@ public class InventoryCategoryTabUI : MonoBehaviour, IPointerEnterHandler, IPoin
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        outlineImage.DOFade(hoveredAlphaValue, fadeInDuration);
         AudioManager.Instance.PlayHoverSound();
+        outlineImage.DOFade(hoveredAlphaValue, fadeInDuration);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        outlineImage.DOKill();
         outlineImage.DOFade(disableAlphaValue, 0);
     }
 }

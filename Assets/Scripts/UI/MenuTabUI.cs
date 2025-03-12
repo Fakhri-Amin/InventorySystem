@@ -83,6 +83,7 @@ public class MenuTabUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandle
 
     public void OnPointerExit(PointerEventData eventData)
     {
+        outlineImage.DOKill();
         outlineImage.DOFade(0, fadeInDuration);
     }
 }
