@@ -6,9 +6,11 @@ public class CraftingInputManager : MonoBehaviour
 {
     public static CraftingInputManager Instance { get; private set; }
 
-    public InputAction playerInput; // Reference to input action
+    public InputAction playerInput;
 
     [SerializeField] private float delayBetweenCraft = 0.1f;
+    [SerializeField] float minDelayBetweenCraft = 0.075f;
+    [SerializeField] float delayDecreaseAmountPerCycle = 0.005f;
 
     private Coroutine craftingCoroutine;
     private CraftingInventorySlotUI currentSlot;
@@ -57,12 +59,19 @@ public class CraftingInputManager : MonoBehaviour
 
     private IEnumerator CraftingLoop()
     {
+        float currentDelay = delayBetweenCraft;
+
         while (isCrafting)
         {
-            currentSlot?.CraftItem(); // Calls the craft function on the active slot
-            yield return new WaitForSeconds(delayBetweenCraft);
+            currentSlot?.CraftItem();
+
+            yield return new WaitForSeconds(currentDelay);
+
+            // Reduce delay gradually but stop at minDelay
+            currentDelay = Mathf.Max(currentDelay - delayDecreaseAmountPerCycle, minDelayBetweenCraft);
         }
     }
+
 
     // Called by inventory slots when hovered or clicked
     public void SetCurrentSlot(CraftingInventorySlotUI slot)
