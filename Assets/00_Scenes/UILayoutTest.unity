@@ -273,6 +273,7 @@ Transform:
   - {fileID: 2088055230}
   - {fileID: 1336344086}
   - {fileID: 938041841}
+  - {fileID: 571555114}
   - {fileID: 886188906}
   - {fileID: 1136117950}
   m_Father: {fileID: 0}
@@ -6034,6 +6035,84 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 81464a80b4fcb434fa419e011dc1f0cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &571555112
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 571555114}
+  - component: {fileID: 571555113}
+  m_Layer: 0
+  m_Name: MenuInputManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &571555113
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571555112}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 130ca5b0add3c904282d8419b8200ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nextMenuAction:
+    m_Name: Next Menu
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 75838927-0443-4255-ad13-8f24ec71266e
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: 659d5808-5579-4e1d-b9c8-1ccc3b767170
+      m_Path: <Keyboard>/e
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Next Menu
+      m_Flags: 0
+    m_Flags: 0
+  previousMenuAction:
+    m_Name: Previous Menu
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8b8b17cb-59bb-49a7-86f5-b6402696672b
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings:
+    - m_Name: 
+      m_Id: b87563c6-fd8b-4cec-bbef-32d654101704
+      m_Path: <Keyboard>/q
+      m_Interactions: 
+      m_Processors: 
+      m_Groups: 
+      m_Action: Previous Menu
+      m_Flags: 0
+    m_Flags: 0
+--- !u!4 &571555114
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 571555112}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 53138555}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &574529341
 GameObject:
   m_ObjectHideFlags: 0
@@ -16202,7 +16281,7 @@ GameObject:
   - component: {fileID: 1697773803}
   - component: {fileID: 1697773804}
   m_Layer: 5
-  m_Name: Panel
+  m_Name: Menu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16279,6 +16358,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 60eb5163b57b1fd4297cece5921ba1d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  menuInputManager: {fileID: 571555113}
   menuReferences:
   - Button: {fileID: 2068670598}
     MenuPage: {fileID: 0}

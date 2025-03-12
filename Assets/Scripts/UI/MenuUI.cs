@@ -13,34 +13,66 @@ public class MenuUI : MonoBehaviour
         [HideInInspector] public MenuTabUI TabUI;
     }
 
+    [SerializeField] private MenuInputManager menuInputManager;
     [SerializeField] private List<MenuReference> menuReferences = new List<MenuReference>();
 
     [Header("Animation")]
     [SerializeField] private float fadeInDuration = 0.2f;
+
+    private int currentIndex = 0;
 
     private void Awake()
     {
         InitializeMenu();
     }
 
+    void OnEnable()
+    {
+        menuInputManager.OnNextMenuButtonPressed += MoveToNextMenu;
+        menuInputManager.OnPreviousMenuButtonPressed += MoveToPreviousMenu;
+    }
+
+    void OnDisable()
+    {
+        menuInputManager.OnNextMenuButtonPressed -= MoveToNextMenu;
+        menuInputManager.OnPreviousMenuButtonPressed -= MoveToPreviousMenu;
+    }
+
     private void InitializeMenu()
     {
-        foreach (var item in menuReferences)
+        for (int i = 0; i < menuReferences.Count; i++)
         {
-            if (!item.Button) continue;
+            if (!menuReferences[i].Button) continue;
 
-            item.TabUI = item.Button.GetComponent<MenuTabUI>();
-            item.TabUI?.DeselectTabAtFirst();
+            menuReferences[i].TabUI = menuReferences[i].Button.GetComponent<MenuTabUI>();
+            menuReferences[i].TabUI?.DeselectTabAtFirst();
 
-            item.Button.onClick.AddListener(() => OpenMenu(item));
+            int index = i; // Capture index for correct referencing
+            menuReferences[i].Button.onClick.AddListener(() => OpenMenu(index));
         }
 
         HideAllMenus();
+        SelectFirstTab();
     }
 
-    private void OpenMenu(MenuReference selectedItem)
+    private void SelectFirstTab()
     {
+        menuReferences[0].Button.GetComponent<MenuTabUI>().SelectTab(fadeInDuration);
+        if (menuReferences[0].MenuPage)
+        {
+            menuReferences[0].MenuPage.gameObject.SetActive(true);
+            menuReferences[0].MenuPage.DOFade(1, fadeInDuration);
+        }
+    }
+
+    private void OpenMenu(int index)
+    {
+        if (index < 0 || index >= menuReferences.Count) return;
+
         HideAllMenus();
+        currentIndex = index;
+
+        var selectedItem = menuReferences[currentIndex];
 
         if (selectedItem.TabUI != null)
         {
@@ -62,5 +94,17 @@ public class MenuUI : MonoBehaviour
             page.MenuPage.gameObject.SetActive(false);
             page.MenuPage.alpha = 0;
         }
+    }
+
+    private void MoveToNextMenu()
+    {
+        int nextIndex = (currentIndex + 1) % menuReferences.Count;
+        OpenMenu(nextIndex);
+    }
+
+    private void MoveToPreviousMenu()
+    {
+        int prevIndex = (currentIndex - 1 + menuReferences.Count) % menuReferences.Count;
+        OpenMenu(prevIndex);
     }
 }
